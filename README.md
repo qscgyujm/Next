@@ -1,3 +1,8 @@
+# Next.js * Express * TypeScript * Sequelize
+
+- Source: [custom-server-typescript](https://github.com/zeit/next.js/tree/canary/examples/custom-server-typescript)
+- 加入 express, eslint
+
 # Custom server with TypeScript + Nodemon example
 
 The example shows how you can use [TypeScript](https://typescriptlang.com) on both the server and the client while using [Nodemon](https://nodemon.io/) to live reload the server code without affecting the Next.js universal code.
