@@ -29,6 +29,8 @@
                 ".tsx"
               ]
             }
-          ]
+          ],
+        "max-len": "off", // 字數長度
+        "import/prefer-default-export": "off" // default export off
     }
 }

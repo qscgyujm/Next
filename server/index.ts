@@ -1,7 +1,11 @@
 import express from 'express';
 import next from 'next';
+
 // import { createServer } from 'http';
 // import { parse } from 'url';
+
+import Api from './route/index';
+import authRouter from './route/authRouter';
 
 const port = parseInt(process.env.PORT || '3000', 10);
 const dev = process.env.NODE_ENV !== 'production';
@@ -10,6 +14,9 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
+
+  server.use(authRouter(app));
+  server.use('/api', Api);
 
   server.get('*', (req, res) => handle(req, res));
 
@@ -20,18 +27,6 @@ app.prepare().then(() => {
 
     console.log(`Ready on http://localhost:${port}`);
   });
-  // createServer((req, res) => {
-  //   const parsedUrl = parse(req.url!, true);
-  //   const { pathname, query } = parsedUrl;
-
-  //   if (pathname === '/a') {
-  //     app.render(req, res, '/a', query);
-  //   } else if (pathname === '/b') {
-  //     app.render(req, res, '/b', query);
-  //   } else {
-  //     handle(req, res, parsedUrl);
-  //   }
-  // }).listen(port);
 
   // tslint:disable-next-line:no-console
   console.log(
